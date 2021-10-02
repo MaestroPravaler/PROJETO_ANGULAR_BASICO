@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import instruments from '../instrument';
+
 @Component({
   selector: 'app-employee-new',
   templateUrl: './employee-new.component.html',
@@ -7,8 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeNewComponent implements OnInit {
 
-  name = 'Violino';
-  instrument : string[] = [];
+  name = '';
+  value = 0;
+  instruments = instruments;
 
   constructor() { }
 
@@ -16,8 +19,8 @@ export class EmployeeNewComponent implements OnInit {
   }
 
   addInstrument(){
-    this.instrument.push(this.name);
-    console.log(this.instrument);
+    this.instruments.push({name: this.name, value: this.value});
+    console.log(this.instruments);
   }
 
 }
