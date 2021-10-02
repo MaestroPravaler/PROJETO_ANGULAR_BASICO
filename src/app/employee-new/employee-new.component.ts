@@ -8,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class EmployeeNewComponent implements OnInit {
 
   name = 'Violino';
+  instrument : string[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addInstrument(){
+    this.instrument.push(this.name);
+    console.log(this.instrument);
   }
 
 }
