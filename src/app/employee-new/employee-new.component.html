@@ -1,0 +1,14 @@
+<!-- Programação altera o template - via de mão única -->
+<label>Nome: </label>
+<input type="text" [value] = "name">
+Se digitar não altera nada
+<p>================================================================================</p>
+
+<!-- Programação altera o template e o template a programação - via de mão dupla -->
+Digita que troca o valor da variável
+<p></p>
+<label>Nome: </label>
+<input type="text" [(ngModel)] = "name">
+<br>
+{{ name }}
+<p>================================================================================</p>
