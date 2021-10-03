@@ -16,4 +16,9 @@ export class EmployeeListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getInstrumentColor(instrument: any){
+    return instrument.value > 1000 ? 'green' : 'red';
+
+  }
+
 }

@@ -12,6 +12,7 @@ Troca automaticamente o valor da variável
 <p></p>
 <label>Valor: </label>
 <input type="text" [(ngModel)] = "value">
+<p [style.color]="value > 1000?'green' : 'red'">{{ value }}</p><br>
 {{ name }}
 <p>================================================================================</p>
 

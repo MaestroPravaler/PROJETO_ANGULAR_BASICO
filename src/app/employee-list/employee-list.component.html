@@ -8,8 +8,24 @@
     </thead>
     <tbody>
         <tr *ngFor="let instrument of instruments">
-            <td>{{ instrument.name }}</td>
-            <td>{{ instrument.value }}</td>
+            <!-- <td>{{ instrument.name }}</td>
+                 <td>{{ instrument.value }}</td> -->
+            <!-- PROPRIEDADES REATIVAS (O RESULTADO É O MESMO do exemplo acima)
+                 PROPRIEDADES REATIVAS (trocando as cores do valor)
+            <td [innerHtml]= "instrument.name"></td>
+            <td [innerHtml]= "instrument.value" 
+                [style.color]="instrument.value > 1000?'green' : 'red'">
+            </td> -->
+            <!--Criando um método para troca de cores 
+            <td [innerHtml]= "instrument.name"></td>
+            <td [innerHtml]= "instrument.value" 
+                [style.color]="getInstrumentColor(instrument)">
+            </td> -->
+            <!--Ativando o comportamento com classes de CSS -->
+            <td [innerHtml]= "instrument.name"></td>
+            <td [innerHtml]= "instrument.value" 
+                [ngClass]="{ 'instrument-expensive' : instrument.value > 1000, 'instrument-cheap' : instrument.value < 1000 }">
+            </td>
         </tr>
     </tbody>
 </table>
