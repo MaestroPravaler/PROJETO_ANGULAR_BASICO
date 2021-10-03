@@ -2,12 +2,14 @@
 <table>
     <thead>
         <tr>
-            <th>INSTRUMENTO</th>
-            <th>VALOR</th>
+            <th>INSTRUMENTO |</th>
+            <th>VALOR |</th>
+            <th>DESCONTO |</th>
+            <th>TOTAL |</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let instrument of instruments">
+        <tr *ngFor="let instrument of instrumentService.instruments">
             <!-- <td>{{ instrument.name }}</td>
                  <td>{{ instrument.value }}</td> -->
             <!-- PROPRIEDADES REATIVAS (O RESULTADO É O MESMO do exemplo acima)
@@ -26,6 +28,8 @@
             <td [innerHtml]= "instrument.value" 
                 [ngClass]="{ 'instrument-expensive' : instrument.value > 1000, 'instrument-cheap' : instrument.value < 1000 }">
             </td>
+            <td [innerHtml] = "instrument.discount"></td>
+            <td [innerHtml] = "instrument.value - instrument.discount"></td>
         </tr>
     </tbody>
 </table>

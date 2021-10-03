@@ -1,6 +1,6 @@
 <!-- Programação altera o template - via de mão única -->
 <label>Nome: </label>
-<input type="text" [value] = "name">
+<input type="text" [value] = "instrument.name">
 Se digitar não altera a variavel "name"
 <p>================================================================================</p>
 
@@ -8,12 +8,16 @@ Se digitar não altera a variavel "name"
 Troca automaticamente o valor da variável
 <p></p>
 <label>Nome: </label>
-<input type="text" [(ngModel)] = "name">
+<input type="text" [(ngModel)] = "instrument.name">
 <p></p>
 <label>Valor: </label>
-<input type="text" [(ngModel)] = "value">
-<p [style.color]="value > 1000?'green' : 'red'">{{ value }}</p><br>
-{{ name }}
+<input type="text" [(ngModel)] = "instrument.value">
+<p></p>
+<div *ngIf="instrument.value > 1000">
+    <label>Desconto: </label>
+    <input type="text" [(ngModel)] = "instrument.discount">
+</div>
+<p></p>
+<button type="button" (click)="addInstrument()">ADICIONAR UM INSTRUMENTO</button>
 <p>================================================================================</p>
 
-<button type="button" (click)="addInstrument()">ADICIONAR UM INSTRUMENTO</button>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import instruments from '../instrument';
+import { Instrument, InstrumentService } from '../instrument.service';
 
 @Component({
   selector: 'app-employee-new',
@@ -8,19 +8,22 @@ import instruments from '../instrument';
   styleUrls: ['./employee-new.component.css']
 })
 export class EmployeeNewComponent implements OnInit {
+  instrument: Instrument = {
+    name: '',
+    value: 0,
+    discount: 0,
+  }
 
-  name = '';
-  value = 0;
-  instruments = instruments;
+  constructor(private instrumentService: InstrumentService) { 
 
-  constructor() { }
+  }
 
   ngOnInit(): void {
   }
 
   addInstrument(){
-    this.instruments.push({name: this.name, value: this.value});
-    console.log(this.instruments);
+    const copy = Object.assign({}, this.instrument)
+    this.instrumentService.addInstrument(copy);
   }
 
 }
